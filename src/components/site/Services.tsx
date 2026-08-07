@@ -27,7 +27,7 @@ export function Services() {
         <div className="sticky top-0 flex h-svh items-center overflow-hidden">
           <motion.div style={{ x }} className="flex gap-6 px-8">
             {SERVICES.map((s, i) => {
-              const Icon = ICONS[i];
+              const Icon = ICONS[i] ?? Code2;
               return (
                 <article
                   key={s.title}
@@ -61,7 +61,7 @@ export function Services() {
       {/* Stacked on small screens */}
       <div className="mx-auto grid max-w-6xl gap-5 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:hidden">
         {SERVICES.map((s, i) => {
-          const Icon = ICONS[i];
+          const Icon = ICONS[i] ?? Code2;
           return (
             <Reveal key={s.title} delay={i * 0.06}>
               <article className="glass card-hover h-full rounded-3xl p-7">
