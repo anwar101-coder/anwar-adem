@@ -48,7 +48,7 @@ export function Hero() {
         style={{ opacity: fade }}
         className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]"
       >
-        <div>
+        <div className="min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
