@@ -83,8 +83,8 @@ export function About() {
           </article>
         </Reveal>
 
-        <Reveal className="md:col-span-3" delay={0.05}>
-          <article className="glass card-hover h-full rounded-3xl p-8">
+        <Reveal className="md:col-span-3 scroll-mt-24" delay={0.05}>
+          <article id="skills" className="glass card-hover h-full rounded-3xl p-8">
             <h3 className="text-xl font-bold">Languages I write</h3>
             <ul className="mt-5 flex flex-wrap gap-2">
               {SKILLS.map((s) => (
