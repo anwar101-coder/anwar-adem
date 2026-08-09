@@ -35,7 +35,7 @@ export function About() {
               loading="lazy"
               width={600}
               height={800}
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+              className="h-48 w-full object-cover object-top transition-transform duration-700 hover:scale-105 sm:h-60 md:h-full"
             />
           </article>
         </Reveal>

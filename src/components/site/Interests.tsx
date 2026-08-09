@@ -12,7 +12,7 @@ export function Interests() {
     <section ref={ref} className="relative overflow-hidden py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
         <Reveal direction="right">
-          <div className="relative">
+          <div className="relative mx-auto w-full max-w-sm">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-tr from-accent/25 to-primary/25 blur-3xl" />
             <div className="glass relative overflow-hidden rounded-[2rem] p-2">
               <motion.img
@@ -22,7 +22,7 @@ export function Interests() {
                 loading="lazy"
                 width={600}
                 height={780}
-                className="w-full scale-110 rounded-[1.6rem] object-cover"
+                className="h-64 w-full scale-110 rounded-[1.6rem] object-cover sm:h-80 lg:h-[26rem]"
               />
             </div>
           </div>
