@@ -1,8 +1,8 @@
 export const NAV = [
   { id: "about", label: "About" },
-  { id: "work", label: "Work" },
-  { id: "services", label: "Services" },
-  { id: "journey", label: "Journey" },
+  { id: "skills", label: "Skills" },
+  { id: "work", label: "Projects" },
+  { id: "journey", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -13,6 +13,8 @@ export const CONTACT = {
   email: "anwaradem486@gmail.com",
   linkedin: "https://www.linkedin.com/in/anwar-adem",
   instagram: "https://www.instagram.com/a.n.wa.r_1?igsh=MTExMzQxZTZxaXhxZw==",
+  github: "https://github.com/anwar101-coder",
+  telegram: "https://t.me/Anwar_CEO",
   resume:
     "https://docs.google.com/document/d/1KVEYVTMmTh7Tsma8tqfVBlTJCzLQy19jwOM22SaUNHY/edit?usp=drive_link",
 };

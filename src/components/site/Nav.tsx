@@ -32,11 +32,11 @@ export function Nav() {
           aria-label="Main"
           className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 sm:px-8"
         >
-          <a href="#top" className="flex min-w-0 items-center gap-2">
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary font-mono text-sm font-bold text-primary-foreground">
-              AA
-            </span>
-            <span className="truncate text-sm font-semibold tracking-tight">Anwar Adem</span>
+          <a
+            href="#top"
+            className="min-w-0 truncate text-sm font-extrabold tracking-[0.22em] uppercase"
+          >
+            Anwar Adem
           </a>
 
           <div className="hidden items-center gap-1 md:flex">
