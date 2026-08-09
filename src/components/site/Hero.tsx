@@ -28,7 +28,7 @@ export function Hero() {
         <img
           src={portrait.url}
           alt="Portrait of Anwar Adem"
-          className="h-full w-full object-cover object-[70%_18%] opacity-45 lg:opacity-100"
+          className="h-full w-full object-cover object-[70%_18%] opacity-25 lg:opacity-100"
         />
         <div
           aria-hidden
