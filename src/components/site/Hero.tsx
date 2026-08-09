@@ -32,11 +32,11 @@ export function Hero() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(90deg,var(--color-background)_0%,color-mix(in_oklab,var(--color-background)_88%,transparent)_38%,transparent_78%)]"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(0deg,var(--color-background)_6%,color-mix(in_oklab,var(--color-background)_60%,transparent)_45%,transparent_100%)]"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, var(--color-background) 0%, color-mix(in oklab, var(--color-background) 85%, transparent) 40%, transparent 80%), linear-gradient(0deg, var(--color-background) 4%, color-mix(in oklab, var(--color-background) 55%, transparent) 45%, transparent 100%)",
+          }}
         />
       </motion.div>
 
