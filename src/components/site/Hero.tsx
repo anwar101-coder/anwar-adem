@@ -28,7 +28,7 @@ export function Hero() {
         <img
           src={portrait.url}
           alt="Portrait of Anwar Adem"
-          className="h-full w-full object-cover object-[70%_20%] opacity-70 lg:opacity-100"
+          className="h-full w-full object-cover object-[70%_18%] opacity-45 lg:opacity-100"
         />
         <div
           aria-hidden
@@ -36,7 +36,7 @@ export function Hero() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-[linear-gradient(0deg,var(--color-background)_2%,transparent_45%)]"
+          className="absolute inset-0 bg-[linear-gradient(0deg,var(--color-background)_6%,color-mix(in_oklab,var(--color-background)_60%,transparent)_45%,transparent_100%)]"
         />
       </motion.div>
 
