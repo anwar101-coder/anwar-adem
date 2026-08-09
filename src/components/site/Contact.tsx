@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Copy, Instagram, Linkedin, Mail, Phone, FileText } from "lucide-react";
+import { Check, Copy, Github, Instagram, Linkedin, Mail, Phone, FileText, Send } from "lucide-react";
 import { MagneticButton, Reveal } from "./Reveal";
 import { CONTACT } from "./data";
 
@@ -60,6 +60,8 @@ export function Contact() {
         <Reveal delay={0.28}>
           <div className="mt-12 flex flex-wrap justify-center gap-3">
             {[
+              { href: CONTACT.github, Icon: Github, label: "GitHub" },
+              { href: CONTACT.telegram, Icon: Send, label: "Telegram" },
               { href: CONTACT.linkedin, Icon: Linkedin, label: "LinkedIn" },
               { href: CONTACT.instagram, Icon: Instagram, label: "Instagram" },
               { href: CONTACT.resume, Icon: FileText, label: "Resume" },
@@ -84,9 +86,22 @@ export function Contact() {
         <p className="mono-tag min-w-0 truncate text-muted-foreground">
           © {new Date().getFullYear()} Anwar Adem
         </p>
-        <a href="#top" className="mono-tag shrink-0 text-muted-foreground hover:text-foreground">
-          Back to top ↑
-        </a>
+        <div className="mono-tag flex shrink-0 items-center gap-4 text-muted-foreground">
+          <a href={CONTACT.github} target="_blank" rel="noreferrer" className="hover:text-foreground">
+            GitHub
+          </a>
+          <a
+            href={CONTACT.telegram}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-foreground"
+          >
+            Telegram
+          </a>
+          <a href="#top" className="hover:text-foreground">
+            Top ↑
+          </a>
+        </div>
       </footer>
     </section>
   );
