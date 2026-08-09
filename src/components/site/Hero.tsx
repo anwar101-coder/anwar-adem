@@ -1,163 +1,151 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import portrait from "@/assets/portrait.png.asset.json";
-import { MagneticButton } from "./Reveal";
-import { SKILLS } from "./data";
-
-const FLOATING = ["TS", "JS", "PY", "SQL", "C++", "{ }"];
+import { CONTACT } from "./data";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) =>
-      setMouse({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2,
-      });
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
+  const imgY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   return (
     <section
       id="top"
       ref={ref}
-      className="relative flex min-h-svh items-center overflow-hidden pt-28 pb-16"
+      className="grain relative flex min-h-svh items-center overflow-hidden bg-background"
     >
+      {/* Portrait */}
       <motion.div
-        aria-hidden
-        style={{
-          y,
-          background: "var(--gradient-hero)",
-          x: mouse.x * -20,
-        }}
-        className="pointer-events-none absolute inset-[-20%] opacity-80"
-      />
+        style={{ y: imgY, scale: imgScale }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[62%]"
+      >
+        <img
+          src={portrait.url}
+          alt="Portrait of Anwar Adem"
+          className="h-full w-full object-cover object-[70%_20%] opacity-70 lg:opacity-100"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(90deg,var(--color-background)_0%,color-mix(in_oklab,var(--color-background)_88%,transparent)_38%,transparent_78%)]"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(0deg,var(--color-background)_2%,transparent_45%)]"
+        />
+      </motion.div>
+
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.15] [background-image:linear-gradient(var(--color-border)_1px,transparent_1px),linear-gradient(90deg,var(--color-border)_1px,transparent_1px)] [background-size:64px_64px]"
+        className="pointer-events-none absolute -left-40 top-1/3 h-[36rem] w-[36rem] rounded-full bg-primary/15 blur-[140px]"
       />
 
+      {/* Copy */}
       <motion.div
         style={{ opacity: fade }}
-        className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]"
+        className="relative mx-auto w-full max-w-6xl px-5 pt-32 pb-28 sm:px-8"
       >
-        <div className="min-w-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+        <div className="max-w-2xl">
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="glass mono-tag inline-flex items-center gap-2 rounded-full px-4 py-2"
+            className="text-lg font-medium text-primary"
           >
-            <span className="animate-pulse-ring relative h-2 w-2 rounded-full bg-accent" />
-            Available for work
-          </motion.div>
+            Hey there — I&apos;m Anwar
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="mono-tag mt-5 text-muted-foreground"
+          >
+            Computer Science <span className="text-primary">•</span> Full-Stack Software Development
+          </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 text-5xl leading-[0.95] font-extrabold tracking-tight sm:text-6xl lg:text-7xl"
+            transition={{ duration: 0.9, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-6 text-[clamp(2.6rem,7vw,5.4rem)] leading-[0.94] font-extrabold tracking-[-0.03em]"
           >
-            I build websites <br />
-            that <span className="text-gradient">grow businesses</span>
+            I build digital experiences that turn{" "}
+            <span className="text-primary">ideas into reality.</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.22 }}
-            className="mt-6 max-w-xl text-lg text-muted-foreground"
+            transition={{ duration: 0.8, delay: 0.32 }}
+            className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            I design and build modern, responsive websites and web applications that help
-            businesses grow online.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.34 }}
-            className="mono-tag mt-4 text-accent"
-          >
-            Computer Science Student • Full-Stack Web Developer
+            Computer Science student and aspiring software developer focused on building modern,
+            responsive, and user-friendly websites and applications that solve real-world problems.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-9 flex flex-wrap gap-3"
+            transition={{ duration: 0.8, delay: 0.44 }}
+            className="mt-10 flex flex-wrap gap-3"
           >
-            <MagneticButton href="#work">
-              View work <ArrowUpRight className="h-4 w-4" />
-            </MagneticButton>
-            <MagneticButton href="#contact" variant="ghost">
-              <Mail className="h-4 w-4" /> Let's talk
-            </MagneticButton>
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform duration-300 hover:scale-[1.03]"
+            >
+              View My Work
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-primary hover:text-primary"
+            >
+              Let&apos;s Connect
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </motion.div>
 
-          <div className="mt-12 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
-            <div className="animate-marquee flex w-max gap-3">
-              {[...SKILLS, ...SKILLS].map((s, i) => (
-                <span
-                  key={i}
-                  className="glass mono-tag rounded-full px-4 py-2 text-muted-foreground"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mono-tag mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 text-muted-foreground"
+          >
+            {[
+              { label: "GitHub", href: CONTACT.github },
+              { label: "LinkedIn", href: CONTACT.linkedin },
+              { label: "Email", href: `mailto:${CONTACT.email}` },
+            ].map((l, i) => (
+              <span key={l.label} className="flex items-center gap-3">
+                {i > 0 && <span className="text-border">·</span>}
+                <a
+                  href={l.href}
+                  target={l.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer"
+                  className="transition-colors hover:text-foreground"
                 >
-                  {s}
-                </span>
-              ))}
-            </div>
-          </div>
+                  {l.label}
+                </a>
+              </span>
+            ))}
+          </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          style={{ rotateY: mouse.x * 5, rotateX: mouse.y * -5 }}
-          className="relative mx-auto w-full max-w-sm [transform-style:preserve-3d]"
-        >
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-primary/40 to-accent/30 blur-3xl" />
-          <div className="glass relative overflow-hidden rounded-[2rem] p-2">
-            <img
-              src={portrait.url}
-              alt="Portrait of Anwar Adem"
-              width={600}
-              height={800}
-              className="w-full rounded-[1.6rem] object-cover transition-transform duration-700 hover:scale-[1.04]"
-            />
-          </div>
-          {FLOATING.map((t, i) => (
-            <span
-              key={t}
-              className="glass animate-float mono-tag absolute rounded-xl px-3 py-2 text-accent"
-              style={{
-                top: `${[8, 30, 62, 84, 46, 16][i]}%`,
-                left: i % 2 ? "-12%" : "88%",
-                animationDelay: `${i * 0.7}s`,
-              }}
-            >
-              {t}
-            </span>
-          ))}
-        </motion.div>
       </motion.div>
 
       <motion.a
         href="#about"
-        aria-label="Scroll to about section"
         style={{ opacity: fade }}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-muted-foreground hover:text-foreground"
+        aria-label="Scroll to about section"
+        className="mono-tag absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
       >
-        <ArrowDown className="h-5 w-5" />
+        Scroll to explore
+        <ArrowDown className="animate-scroll-cue h-4 w-4" />
       </motion.a>
     </section>
   );
