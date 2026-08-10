@@ -36,6 +36,11 @@ export function Contact() {
           </p>
         </Reveal>
 
+        <Reveal delay={0.08}>
+          <ContactForm />
+        </Reveal>
+
+
         <Reveal delay={0.12}>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <MagneticButton href={`mailto:${CONTACT.email}`}>
