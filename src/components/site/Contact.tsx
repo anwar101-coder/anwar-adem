@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Copy, Github, Instagram, Linkedin, Mail, Phone, FileText, Send } from "lucide-react";
 import { MagneticButton, Reveal } from "./Reveal";
+import { ContactForm } from "./ContactForm";
 import { CONTACT } from "./data";
 
 export function Contact() {
@@ -34,6 +35,11 @@ export function Contact() {
             and I'll reply within a day.
           </p>
         </Reveal>
+
+        <Reveal delay={0.08}>
+          <ContactForm />
+        </Reveal>
+
 
         <Reveal delay={0.12}>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
