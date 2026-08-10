@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, Copy, Github, Instagram, Linkedin, Mail, Phone, FileText, Send } from "lucide-react";
 import { MagneticButton, Reveal } from "./Reveal";
+import { ContactForm } from "./ContactForm";
 import { CONTACT } from "./data";
 
 export function Contact() {
