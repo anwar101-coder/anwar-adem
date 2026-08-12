@@ -12,6 +12,7 @@ export default defineConfig({
     },
   },
   vite: {
+    base: "/anwar-adem/",
     plugins: [nitro({ preset: "node-server" })],
   },
 });
