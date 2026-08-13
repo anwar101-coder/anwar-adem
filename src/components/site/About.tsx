@@ -1,5 +1,5 @@
 import { GraduationCap, Sparkles, Target, Wrench } from "lucide-react";
-import thinking from "@/assets/thinking.png.asset.json";
+import thinking from "@/assets/thinking.png";
 import { Counter, Reveal } from "./Reveal";
 import { STATS, TOOLS, SKILLS } from "./data";
 
@@ -30,7 +30,7 @@ export function About() {
         <Reveal className="md:col-span-2" direction="left" delay={0.1}>
           <article className="glass card-hover h-full overflow-hidden rounded-3xl">
             <img
-              src={thinking.url}
+              src={thinking}
               alt="Anwar Adem working at his desk"
               loading="lazy"
               width={600}
