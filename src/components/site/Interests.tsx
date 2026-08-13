@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import cafe from "@/assets/cafe.png.asset.json";
+import cafe from "@/assets/cafe.png";
 import { Reveal } from "./Reveal";
 
 export function Interests() {
@@ -17,7 +17,7 @@ export function Interests() {
             <div className="glass relative overflow-hidden rounded-[2rem] p-2">
               <motion.img
                 style={{ y }}
-                src={cafe.url}
+                src={cafe}
                 alt="Anwar Adem holding a coffee in a café"
                 loading="lazy"
                 width={600}
