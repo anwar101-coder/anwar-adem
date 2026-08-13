@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import portrait from "@/assets/portrait.png.asset.json";
+import portrait from "@/assets/portrait.png";
 import { CONTACT } from "./data";
 
 export function Hero() {
@@ -26,7 +26,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[62%]"
       >
         <img
-          src={portrait.url}
+          src={portrait}
           alt="Portrait of Anwar Adem"
           className="h-full w-full object-cover object-[70%_18%] opacity-35 lg:opacity-100"
         />
