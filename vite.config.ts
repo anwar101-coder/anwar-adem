@@ -13,6 +13,10 @@ export default defineConfig({
   },
   vite: {
     base: process.env.VERCEL ? "/" : "/anwar-adem/",
-    plugins: [nitro({ preset: "node-server" })],
+    plugins: [
+      nitro({
+        preset: process.env.VERCEL ? "vercel" : "node-server",
+      }),
+    ],
   },
 });
